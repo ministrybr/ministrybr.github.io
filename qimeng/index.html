@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="绮梦 - 梦幻唯美壁纸与插画分享平台，提供高清自然、梦幻星空、唯美人物等主题壁纸下载与在线预览，打造您的数字梦境空间。">
+    <meta name="keywords" content="绮梦,壁纸,插画,梦幻壁纸,高清壁纸,背景图,自然风景">
+    <title>绮梦 - 梦幻唯美壁纸与插画分享平台</title>
+    <style>
+        :root {
+            --primary-color: #7b68ee;
+            --primary-dark: #6a5acd;
+            --secondary-color: #ff69b4;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f9f9fc;
+            --bg-card: #ffffff;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(123, 104, 238, 0.15);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f0f0f5;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 14px;
+            width: 200px;
+        }
+
+        .search-box button {
+            background: transparent;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('https://picsum.photos/seed/nightsky/1920/1080.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(123, 104, 238, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(123, 104, 238, 0.6);
+        }
+
+        /* Categories */
+        .categories {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 6px;
+            height: 28px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .cat-card {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .cat-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .cat-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .cat-count {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        /* Featured Wallpapers */
+        .wallpaper-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .wp-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .wp-card:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-5px);
+        }
+
+        .wp-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .wp-card:hover .wp-image {
+            transform: scale(1.05);
+        }
+
+        .wp-info {
+            padding: 15px;
+        }
+
+        .wp-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .wp-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .wp-actions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 8px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+        }
+
+        .wp-card:hover .wp-actions {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .action-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .action-btn:hover {
+            color: var(--primary-color);
+        }
+
+        /* Feature Section */
+        .feature-section {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            border-radius: var(--border-radius);
+            padding: 60px;
+            margin-bottom: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .feature-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .feature-text h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .feature-text p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            background: white;
+            color: var(--primary-color);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .feature-img {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            height: 300px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .feature-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* Footer */
+        footer {
+            background: #2b2b3b;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            .header-inner {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 15px 0;
+            }
+            nav {
+                order: 3;
+                width: 100%;
+                margin-top: 15px;
+            }
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            .search-box {
+                display: none;
+            }
+            .feature-section {
+                padding: 30px;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>绮梦</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">最新壁纸</a></li>
+                    <li><a href="#">分类浏览</a></li>
+                    <li><a href="#">热门榜单</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索壁纸、插画...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>点亮您的数字梦境空间</h1>
+                <p>探索海量高清唯美壁纸，从梦幻星空到静谧森林，每一张都是心灵的慰藉。</p>
+                <button class="btn btn-primary">立即探索</button>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Categories -->
+            <section class="categories">
+                <h2 class="section-title">热门分类</h2>
+                <div class="category-grid">
+                    <div class="cat-card">
+                        <span class="cat-icon">🌌</span>
+                        <div class="cat-name">梦幻星空</div>
+                        <div class="cat-count">1,204 张</div>
+                    </div>
+                    <div class="cat-card">
+                        <span class="cat-icon">🌸</span>
+                        <div class="cat-name">唯美花卉</div>
+                        <div class="cat-count">856 张</div>
+                    </div>
+                    <div class="cat-card">
+                        <span class="cat-icon">🏞️</span>
+                        <div class="cat-name">自然风景</div>
+                        <div class="cat-count">2,340 张</div>
+                    </div>
+                    <div class="cat-card">
+                        <span class="cat-icon">🐱</span>
+                        <div class="cat-name">萌宠治愈</div>
+                        <div class="cat-count">530 张</div>
+                    </div>
+                    <div class="cat-card">
+                        <span class="cat-icon">🌃</span>
+                        <div class="cat-name">城市夜景</div>
+                        <div class="cat-count">780 张</div>
+                    </div>
+                    <div class="cat-card">
+                        <span class="cat-icon">🎨</span>
+                        <div class="cat-name">二次元插画</div>
+                        <div class="cat-count">1,560 张</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Wallpapers -->
+            <section>
+                <h2 class="section-title">每日精选</h2>
+                <div class="wallpaper-grid">
+                    <article class="wp-card">
+                        <div class="wp-actions">
+                            <a href="#" class="action-btn" title="收藏">♥</a>
+                            <a href="#" class="action-btn" title="下载">⬇</a>
+                        </div>
+                        <img src="https://picsum.photos/seed/dream1/400/300.jpg" alt="银河边缘" class="wp-image">
+                        <div class="wp-info">
+                            <h3 class="wp-title">银河边缘的微光</h3>
+                            <div class="wp-meta">
+                                <span>4K 超清</span>
+                                <span>2.3k 收藏</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="wp-card">
+                        <div class="wp-actions">
+                            <a href="#" class="action-btn" title="收藏">♥</a>
+                            <a href="#" class="action-btn" title="下载">⬇</a>
+                        </div>
+                        <img src="https://picsum.photos/seed/dream2/400/300.jpg" alt="静谧森林" class="wp-image">
+                        <div class="wp-info">
+                            <h3 class="wp-title">迷雾森林的早晨</h3>
+                            <div class="wp-meta">
+                                <span>1080P</span>
+                                <span>1.8k 收藏</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="wp-card">
+                        <div class="wp-actions">
+                            <a href="#" class="action-btn" title="收藏">♥</a>
+                            <a href="#" class="action-btn" title="下载">⬇</a>
+                        </div>
+                        <img src="https://picsum.photos/seed/dream3/400/300.jpg" alt="粉色梦境" class="wp-image">
+                        <div class="wp-info">
+                            <h3 class="wp-title">粉色梦境的邂逅</h3>
+                            <div class="wp-meta">
+                                <span>4K 超清</span>
+                                <span>3.1k 收藏</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="wp-card">
+                        <div class="wp-actions">
+                            <a href="#" class="action-btn" title="收藏">♥</a>
+                            <a href="#" class="action-btn" title="下载">⬇</a>
+                        </div>
+                        <img src="https://picsum.photos/seed/dream4/400/300.jpg" alt="极光之下" class="wp-image">
+                        <div class="wp-info">
+                            <h3 class="wp-title">北国极光之下</h3>
+                            <div class="wp-meta">
+                                <span>2K</span>
+                                <span>956 收藏</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Feature Section -->
+            <section class="feature-section">
+                <div class="feature-text">
+                    <h2>为什么要选择绮梦？</h2>
+                    <p>我们致力于为用户提供最纯粹、最治愈的视觉体验。所有的壁纸均经过精心挑选和优化，确保在您的设备上呈现出最佳效果。</p>
+                    <ul class="feature-list">
+                        <li>每日更新海量高质量原创图片</li>
+                        <li>支持多种主流分辨率及设备适配</li>
+                        <li>纯净无广告，专注视觉享受</li>
+                        <li>社区互动，分享您的收藏与灵感</li>
+                    </ul>
+                </div>
+                <div class="feature-img">
+                    <img src="https://picsum.photos/seed/art/500/500.jpg" alt="绮梦精选展示">
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于绮梦</h4>
+                    <p>绮梦是一个专注于唯美视觉分享的平台，旨在为用户寻找生活中的美好瞬间。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">使用条款</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门标签</h4>
+                    <ul>
+                        <li><a href="#">4K壁纸</a></li>
+                        <li><a href="#">动漫壁纸</a></li>
+                        <li><a href="#">风景摄影</a></li>
+                        <li><a href="#">极简主义</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 绮梦平台 版权所有. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>

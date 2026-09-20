@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>花都论坛网-花都本地生活资讯、互动交流与便民服务平台</title>
+    <meta name="description" content="花都论坛网是花都本地最具影响力的综合性社区门户，提供花都新闻、房产资讯、二手交易、拼车信息、相亲交友及美食娱乐等本地生活服务，致力于打造花都人自己的网上家园。">
+    <meta name="keywords" content="花都论坛网,花都论坛,花都新闻,花都房产,花都二手,花都拼车,花都相亲,花都本地生活">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --accent-color: #f1faee;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f8f9fa;
+            --border-color: #e0e0e0;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-between {
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .flex-center {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-left: 12px;
+            border-left: 5px solid var(--primary-color);
+            line-height: 1.2;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: var(--secondary-color);
+            color: #fff;
+            font-size: 0.85rem;
+            padding: 8px 0;
+        }
+
+        .top-bar a {
+            color: #ccc;
+            margin-left: 15px;
+        }
+
+        .top-bar a:hover {
+            color: #fff;
+        }
+
+        .main-header {
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            width: 400px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 2px solid var(--border-color);
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-box button {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            background-color: var(--secondary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu li a {
+            display: block;
+            padding: 12px 25px;
+            color: rgba(255,255,255,0.85);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .nav-menu li a:hover, .nav-menu li a.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Main Content Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Featured Section */
+        .featured-slider {
+            position: relative;
+            height: 360px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 40px 30px 20px;
+            color: #fff;
+        }
+
+        .slide-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .news-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .news-body {
+            padding: 15px;
+        }
+
+        .news-tag {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .news-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .news-meta {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .widget {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .hot-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .hot-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .hot-list a {
+            display: flex;
+            align-items: baseline;
+        }
+
+        .hot-list .rank {
+            color: var(--primary-color);
+            font-weight: 800;
+            margin-right: 10px;
+            font-style: italic;
+        }
+
+        .hot-list a:hover .rank {
+            color: var(--secondary-color);
+        }
+
+        .hot-list .title {
+            font-size: 0.95rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            text-align: center;
+        }
+
+        .cat-item {
+            background-color: var(--bg-light);
+            padding: 15px 5px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            transition: background 0.2s;
+        }
+
+        .cat-item:hover {
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+
+        /* Interactive Section */
+        .interactive-section {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+
+        .topic-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .topic-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-gray);
+            position: relative;
+        }
+
+        .topic-tab.active {
+            color: var(--primary-color);
+        }
+
+        .topic-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .topic-list {
+            display: none;
+        }
+
+        .topic-list.active {
+            display: block;
+        }
+
+        .topic-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--bg-light);
+        }
+
+        .topic-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .topic-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ddd;
+            flex-shrink: 0;
+        }
+
+        .topic-content h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .topic-content p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 5px;
+        }
+
+        .topic-footer {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #999;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                display: none;
+            }
+            .search-box {
+                width: 100%;
+                display: none; /* Hidden on mobile for simplicity in this demo */
+            }
+            .nav-menu {
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .featured-slider {
+                height: 200px;
+            }
+            .slide-content h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container flex-between">
+            <span>欢迎来到花都论坛网！</span>
+            <div>
+                <a href="#">设为首页</a>
+                <a href="#">收藏本站</a>
+                <a href="#">用户登录</a>
+                <a href="#">免费注册</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container main-header flex-between">
+            <a href="#" class="logo">花都<span>论坛网</span></a>
+            <form class="search-box" action="/search" method="get">
+                <input type="text" name="keyword" placeholder="搜索花都新闻、二手信息...">
+                <button type="submit">搜索</button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">花都新闻</a></li>
+                <li><a href="#">房产资讯</a></li>
+                <li><a href="#">二手市场</a></li>
+                <li><a href="#">拼车出行</a></li>
+                <li><a href="#">相亲交友</a></li>
+                <li><a href="#">美食娱乐</a></li>
+                <li><a href="#">生活服务</a></li>
+                <li><a href="#">商家入驻</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Hero Slider -->
+        <section class="featured-slider">
+            <div class="slide active">
+                <img src="https://picsum.photos/seed/huadu1/1200/400" alt="花都新地标">
+                <div class="slide-content">
+                    <h2>花都区举行2023年度重点项目集中开工仪式</h2>
+                    <p>推动区域经济高质量发展，打造现代化新城区...</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://picsum.photos/seed/huadu2/1200/400" alt="花都美食节">
+                <div class="slide-content">
+                    <h2>第十届花都美食文化节盛大开幕</h2>
+                    <p>汇聚百家美食，展现花都饮食文化魅力...</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://picsum.photos/seed/huadu3/1200/400" alt="花都公园">
+                <div class="slide-content">
+                    <h2>花都花山湖公园升级改造完成</h2>
+                    <p>新增休闲步道与观景台，成为市民休闲好去处...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Left Content -->
+            <div class="content-area">
+                
+                <!-- News Section -->
+                <section>
+                    <h3 class="section-title">今日头条</h3>
+                    <div class="news-grid">
+                        <article class="news-card">
+                            <img src="https://picsum.photos/seed/news1/400/250" alt="新闻图片">
+                            <div class="news-body">
+                                <span class="news-tag">本地新闻</span>
+                                <h4 class="news-title"><a href="#">花都交通升级：新建地铁18号线北延段进展顺利</a></h4>
+                                <div class="news-meta">发布时间：2023-10-25 10:30 | 来源：花都论坛</div>
+                            </div>
+                        </article>
+                        <article class="news-card">
+                            <img src="https://picsum.photos/seed/news2/400/250" alt="新闻图片">
+                            <div class="news-body">
+                                <span class="news-tag">房产动态</span>
+                                <h4 class="news-title"><a href="#">花都楼市新政出台，购房者迎来利好消息</a></h4>
+                                <div class="news-meta">发布时间：2023-10-25 09:15 | 来源：房产频道</div>
+                            </div>
+                        </article>
+                        <article class="news-card">
+                            <img src="https://picsum.photos/seed/news3/400/250" alt="新闻图片">
+                            <div class="news-body">
+                                <span class="news-tag">民生服务</span>
+                                <h4 class="news-title"><a href="#">关于开展花都区秋季爱国卫生运动的公告</a></h4>
+                                <div class="news-meta">发布时间：2023-10-24 16:40 | 来源：区卫监局</div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Interactive Discussion -->
+                <section class="interactive-section">
+                    <div class="topic-tabs">
+                        <div class="topic-tab active" onclick="switchTab(this, 'hot')">热门热议</div>
+                        <div class="topic-tab" onclick="switchTab(this, 'photo')">花都影像</div>
+                        <div class="topic-tab" onclick="switchTab(this, 'volunteer')">志愿服务</div>
+                    </div>
+
+                    <div id="hot" class="topic-list active">
+                        <div class="topic-item">
+                            <img src="https://picsum.photos/seed/user1/100/100" class="topic-avatar" alt="用户头像">
+                            <div class="topic-content">
+                                <h4><a href="#">【求助】在花都新华哪里的修电脑比较靠谱？</a></h4>
+                                <p>最近电脑蓝屏了，想找个专业的师傅看看，有没有人推荐一下...</p>
+                                <div class="topic-footer">楼主: 程序员小王 | 回复: 32 | 浏览: 1205</div>
+                            </div>
+                        </div>
+                        <div class="topic-item">
+                            <img src="https://picsum.photos/seed/user2/100/100" class="topic-avatar" alt="用户头像">
+                            <div class="topic-content">
+                                <h4><a href="#">【分享】周末带娃去花都香草世界，推荐路线！</a></h4>
+                                <p>今天天气不错，去了趟香草世界，门票团购很划算，园里风景...</p>
+                                <div class="topic-footer">楼主: 幸福宝妈 | 回复: 15 | 浏览: 890</div>
+                            </div>
+                        </div>
+                        <div class="topic-item">
+                            <img src="https://picsum.photos/seed/user3/100/100" class="topic-avatar" alt="用户头像">
+                            <div class="topic-content">
+                                <h4><a href="#">【曝光】新华中路某餐厅卫生情况堪忧</a></h4>
+                                <p>今天中午去那家新开的餐厅吃饭，发现后厨苍蝇乱飞，太恶心...</p>
+                                <div class="topic-footer">楼主: 吃货雷达 | 回复: 56 | 浏览: 2300</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="photo" class="topic-list">
+                        <div class="topic-item">
+                            <img src="https://picsum.photos/seed/phot1/100/100" class="topic-avatar" alt="用户头像">
+                            <div class="topic-content">
+                                <h4><a href="#">【图集】花都深夜街头美食，深夜放毒！</a></h4>
+                                <p>深夜的大排档总是充满了烟火气，这几家店绝对不能错过。</p>
+                                <div class="topic-footer">楼主: 摄影师阿杰 | 回复: 8 | 浏览: 450</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="volunteer" class="topic-list">
+                        <div class="topic-item">
+                            <img src="https://picsum.photos/seed/vol1/100/100" class="topic-avatar" alt="用户头像">
+                            <div class="topic-content">
+                                <h4><a href="#">【活动】花都志愿者协会招募新成员啦</a></h4>
+                                <p>只要你有一颗爱心，愿意为社区服务，我们就欢迎你加入。</p>
+                                <div class="topic-footer">楼主: 志愿者小李 | 回复: 20 | 浏览: 1100</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Latest News List -->
+                <section>
+                    <h3 class="section-title">最新资讯</h3>
+                    <ul class="hot-list">
+                        <li><a href="#"><span class="rank">1</span><span class="title">花都区政府发布最新招商引资政策指南</span></a></li>
+                        <li><a href="#"><span class="rank">2</span><span class="title">花都公交新增两条线路，方便市民出行</span></a></li>
+                        <li><a href="#"><span class="rank">3</span><span class="title">花都警方破获一起电信诈骗案，挽回损失</span></a></li>
+                        <li><a href="#"><span class="rank">4</span><span class="title">花都图书馆举办少儿绘本阅读活动</span></a></li>
+                        <li><a href="#"><span class="rank">5</span><span class="title">花都各中小学迎来开学季，校园焕然一新</span></a></li>
+                        <li><a href="#"><span class="rank">6</span><span class="title">花都美食节期间交通管制通知</span></a></li>
+                        <li><a href="#"><span class="rank">7</span><span class="title">关于规范花都城区宠物饲养的温馨提示</span></a></li>
+                        <li><a href="#"><span class="rank">8</span><span class="title">花都某医院推出便民门诊服务，缩短排队时间</span></a></li>
+                    </ul>
+                </section>
+
+            </div>
+
+            <!-- Right Sidebar -->
+            <aside class="sidebar">
+                <!-- User Login Widget -->
+                <div class="widget">
+                    <h4 class="widget-title">登录 / 注册</h4>
+                    <div class="flex-center" style="flex-direction: column; gap: 10px;">
+                        <input type="text" placeholder="用户名/手机号" style="width: 100%; padding: 8px; margin-bottom: 5px; border: 1px solid #ddd; border-radius: 4px;">
+                        <input type="password" placeholder="密码" style="width: 100%; padding: 8px; margin-bottom: 5px; border: 1px solid #ddd; border-radius: 4px;">
+                        <button style="width: 100%; padding: 8px; background: var(--primary-color); color: #fff; border: none; border-radius: 4px; cursor: pointer;">立即登录</button>
+                        <a href="#" style="font-size: 0.9rem; color: #666;">忘记密码？</a>
+                    </div>
+                </div>
+
+                <!-- Hot Topics Widget -->
+                <div class="widget">
+                    <h4 class="widget-title">24小时热帖</h4>
+                    <ul class="hot-list">
+                        <li><a href="#"><span class="rank">1</span><span class="title">花都哪里有正宗的广式早茶？</span></a></li>
+                        <li><a href="#"><span class="rank">2</span><span class="title">求助：花都狮岭皮具城进货渠道</span></a></li>
+                        <li><a href="#"><span class="rank">3</span><span class="title">【征婚】85年男生，年薪30w，诚寻伴侣</span></a></li>
+                        <li><a href="#"><span class="rank">4</span><span class="title">大家觉得花都现在房价还会涨吗？</span></a></li>
+                        <li><a href="#"><span class="rank">5</span><span class="title">花都晚上去哪里溜达比较好？</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Categories Widget -->
+                <div class="widget">
+                    <h4 class="widget-title">版块导航</h4>
+                    <div class="category-grid">
+                        <a href="#" class="cat-item">本地新闻</a>
+                        <a href="#" class="cat-item">二手市场</a>
+                        <a href="#" class="cat-item">房产家居</a>
+                        <a href="#" class="cat-item">汽车交易</a>
+                        <a href="#" class="cat-item">婚恋交友</a>
+                        <a href="#" class="cat-item">求职招聘</a>
+                        <a href="#" class="cat-item">教育培训</a>
+                        <a href="#" class="cat-item">吃喝玩乐</a>
+                        <a href="#" class="cat-item">投诉建议</a>
+                    </div>
+                </div>
+
+                <!-- Ad Placeholder -->
+                <div class="widget" style="text-align: center; background: #f0f0f0; min-height: 250px; display: flex; align-items: center; justify-content: center; color: #999;">
+                    <span>广告位招租</span>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>关于花都论坛网</h3>
+                    <p>花都论坛网（www.huaduluntan.com）致力于为花都本地网民提供最全面、最及时、最真实的本地生活服务信息。我们关注花都发展，记录百姓生活，是花都人值得信赖的网上家园。</p>
+                    <p>联系电话：020-12345678 | 客服邮箱：service@huaduluntan.com</p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">广告服务</a></li>
+                        <li><a href="#">友情链接</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>热门频道</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">花都新闻</a></li>
+                        <li><a href="#">房产楼市</a></li>
+                        <li><a href="#">二手交易</a></li>
+                        <li><a href="#">同城交友</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关注我们</h3>
+                    <p>扫描二维码关注微信公众号，获取更多花都资讯。</p>
+                    <div style="width: 100px; height: 100px; background: #333; margin-top: 10px; display: flex; align-items: center; justify-content: center; color: #fff;">微信二维码</div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 花都论坛网 版权所有 | 粤ICP备12345678号-1</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Tab Switching Logic
+        function switchTab(element, tabId) {
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.topic-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            element.classList.add('active');
+
+            // Hide all lists
+            const lists = document.querySelectorAll('.topic-list');
+            lists.forEach(list => list.classList.remove('active'));
+
+            // Show selected list
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Simple Slider Logic (Auto play)
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000); // Change slide every 5 seconds
+    </script>
+</body>
+                          </html>

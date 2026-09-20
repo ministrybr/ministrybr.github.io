@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="花都区政府官方地址查询指南，提供广州市花都区新华街道地址、交通路线、办公时间、联系电话及交通指南，助您快速找到政府办公地点。">
+    <meta name="keywords" content="花都区政府地址,花都区政府办公地址,广州市花都区政府,花都区政府电话,花都区政府交通">
+    <title>花都区政府地址-广州市花都区人民政府办公指南</title>
+    <style>
+        :root {
+            --primary-color: #004ea2; /* 官方蓝 */
+            --secondary-color: #0066cc;
+            --accent-color: #f39c12;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f5f7fa;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: normal;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: var(--container-width);
+            margin: -40px auto 40px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Address Detail Section */
+        .address-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+        }
+
+        .info-label {
+            display: block;
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .highlight-text {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #e0e0e0;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        /* Transport Info */
+        .transport-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            color: var(--text-gray);
+        }
+
+        .transport-list li::before {
+            content: "🚇";
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .transport-list li::after {
+            content: "→";
+            position: absolute;
+            left: 18px;
+            top: 0;
+            font-size: 12px;
+            color: #ccc;
+        }
+        
+        .transport-list li:last-child::after {
+            content: "";
+        }
+
+        /* Notice Board */
+        .notice-board {
+            background-color: #fff8e1;
+            border-left: 5px solid var(--accent-color);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .notice-title {
+            font-weight: bold;
+            color: #d35400;
+            margin-bottom: 10px;
+        }
+
+        /* Directory */
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .dept-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+            transition: all 0.2s;
+        }
+
+        .dept-item:hover {
+            border-color: var(--primary-color);
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .dept-name {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .dept-link {
+            font-size: 13px;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 50px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #34495e;
+            padding-top: 20px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                height: auto;
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .address-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none; /* Simplified for mobile */
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            nav.open {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                广州市花都区人民政府
+                <span>便民服务网</span>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#location">地址查询</a></li>
+                    <li><a href="#traffic">交通指南</a></li>
+                    <li><a href="#contact">联系方式</a></li>
+                    <li><a href="#departments">机构导航</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>花都区政府地址查询</h1>
+        <p>为您提供花都区新华街道府前路1号政府大楼的详细位置、交通路线及办公时间信息。</p>
+    </section>
+
+    <main class="container">
+        <!-- Core Location Card -->
+        <article class="card" id="location">
+            <div class="card-header">
+                <div class="card-title">📍 核心办公地址</div>
+            </div>
+            <div class="address-grid">
+                <div>
+                    <div class="info-item">
+                        <span class="info-label">官方地址</span>
+                        <div class="info-value highlight-text">广州市花都区新华街道府前路1号</div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">邮政编码</span>
+                        <div class="info-value">510800</div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">所属区域</span>
+                        <div class="info-value">广州市花都区（新城区核心地带）</div>
+                    </div>
+                    <div class="notice-board">
+                        <div class="notice-title">💡 办事提示</div>
+                        <p style="font-size: 14px; color: #555;">建议前往前先通过电话咨询具体办事窗口位置，避免走错楼层或科室。</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="map-placeholder">
+                        <img src="https://picsum.photos/seed/gov_map/600/400" alt="花都区政府地图示意">
+                        <div style="position: absolute; background: white; padding: 10px 20px; border-radius: 4px; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+                            <strong>政府大楼实景图</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Transport Guide -->
+        <article class="card" id="traffic">
+            <div class="card-header">
+                <div class="card-title">🚗 交通出行指南</div>
+            </div>
+            <div class="address-grid">
+                <div>
+                    <h3>公共交通路线</h3>
+                    <ul class="transport-list" style="margin-top: 15px;">
+                        <li><strong>地铁：</strong>乘坐地铁9号线至“花都广场站”下车，从C出口或D出口步行约500米即达。</li>
+                        <li><strong>公交：</strong>可乘坐花都公交1路、4路、7路、8路、16路、23路、24路、25路、26路、52路、53路、54路、55路、56路、57路、59路、60路、66路、67路、69路、70路、71路、73路、75路、76路、77路、78路至“区政府”站或“府前路”站。</li>
+                        <li><strong>自驾：</strong>导航设置目的地为“广州市花都区人民政府”或“府前路1号”。周边有停车场（具体收费标准请咨询现场）。</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>周边地标</h3>
+                    <p style="color: var(--text-gray); margin-top: 10px;">
+                        该地址位于花都区城市中心，紧邻花都广场、花都图书馆及花都商业城，周边生活配套设施完善。
+                    </p>
+                    <div style="margin-top: 15px; background: #f0f4f8; padding: 15px; border-radius: 6px;">
+                        <strong>🅿️ 停车建议：</strong><br>
+                        建议优先选择周边公共停车场，政府大院内部停车位较为紧张，周末及工作日早晚高峰时段易饱和。
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Contact Info -->
+        <article class="card" id="contact">
+            <div class="card-header">
+                <div class="card-title">📞 联系与咨询</div>
+            </div>
+            <div class="address-grid">
+                <div>
+                    <div class="info-item">
+                        <span class="info-label">总机电话</span>
+                        <div class="info-value">020-3689XXXX</div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">值班电话</span>
+                        <div class="info-value">020-3689XXXX</div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">传真号码</span>
+                        <div class="info-value">020-3689XXXX</div>
+                    </div>
+                </div>
+                <div>
+                    <span class="info-label">办公时间</span>
+                    <div class="info-value">
+                        <p>周一至周五：上午 8:30 - 12:00</p>
+                        <p>下午 14:00 - 17:30</p>
+                        <p style="margin-top: 5px; font-size: 14px; color: #888;">（法定节假日除外，如遇特殊情况可能调整）</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Departments -->
+        <article class="card" id="departments">
+            <div class="card-header">
+                <div class="card-title">🏢 主要机构分布</div>
+            </div>
+            <div class="directory-grid">
+                <div class="dept-item">
+                    <span class="dept-name">区政府办公室</span>
+                    <span class="dept-link">查看详情 →</span>
+                </div>
+                <div class="dept-item">
+                    <span class="dept-name">发展和改革局</span>
+                    <span class="dept-link">查看详情 →</span>
+                </div>
+                <div class="dept-item">
+                    <span class="dept-name">教育局</span>
+                    <span class="dept-link">查看详情 →</span>
+                </div>
+                <div class="dept-item">
+                    <span class="dept-name">科学技术局</span>
+                    <span class="dept-link">查看详情 →</span>
+                </div>
+                <div class="dept-item">
+                    <span class="dept-name">工业和信息化局</span>
+                    <span class="dept-link">查看详情 →</span>
+                </div>
+                <div class="dept-item">
+                    <span class="dept-name">民政局</span>
+                    <span class="dept-link">查看详情 →</span>
+                </div>
+                <div class="dept-item">
+                    <span class="dept-name">财政局</span>
+                    <span class="dept-link">查看详情 →</span>
+                </div>
+                <div class="dept-item">
+                    <span class="dept-name">人力资源和社会保障局</span>
+                    <span class="dept-link">查看详情 →</span>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>关于花都区政府</h3>
+                <p style="font-size: 14px; line-height: 1.8;">广州市花都区人民政府门户网站，致力于打造公开透明、服务高效的政府网络平台，为公众提供便捷的政务信息服务。</p>
+            </div>
+            <div class="footer-col">
+                <h3>快速导航</h3>
+                <ul>
+                    <li><a href="#">政府信息公开</a></li>
+                    <li><a href="#">网上办事大厅</a></li>
+                    <li><a href="#">民生服务平台</a></li>
+                    <li><a href="#">政策法规库</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>联系我们</h3>
+                <ul>
+                    <li>地址：广州市花都区新华街道府前路1号</li>
+                    <li>邮编：510800</li>
+                    <li>电话：020-3689XXXX</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 广州市花都区人民政府. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('open');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('main-nav').classList.remove('open');
+                }
+            });
+        });
+    </script>
+</body>
+  </html>

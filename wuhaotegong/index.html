@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="五号特工之偷天换日 - 专业解析谍战剧剧情、角色分析、经典台词及观看指南。提供详细分集剧情简介、演员表及幕后制作信息，助您深入了解这部高智商谍战大作。">
+    <meta name="keywords" content="五号特工之偷天换日, 谍战剧, 汪伪特工, 剧情, 观看指南">
+    <title>五号特工之偷天换日-深度剧情解析与谍战剧观看指南</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #b91c1c; /* 警示红 */
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f9f9f9;
+            --bg-white: #ffffff;
+            --border-color: #e5e5e5;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://picsum.photos/seed/spywar/1920/600') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #991b1b;
+        }
+
+        /* Intro Section */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .intro-text h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .intro-text p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        .info-card {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+        }
+
+        .info-label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-weight: 600;
+        }
+
+        /* Cast Section */
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .cast-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .cast-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .cast-img {
+            height: 240px;
+            width: 100%;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .cast-info {
+            padding: 15px;
+        }
+
+        .cast-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .cast-role {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Plot Section */
+        .plot-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .plot-item {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .plot-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .plot-item p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #ccc;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .intro-grid, .plot-container { grid-template-columns: 1fr; }
+            nav { display: none; } /* Simplified for mobile demo */
+            .header-inner { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">五号特工<span>之偷天换日</span></a>
+        <nav>
+            <ul>
+                <li><a href="#intro" class="active">剧情简介</a></li>
+                <li><a href="#cast">主要演员</a></li>
+                <li><a href="#plot">分集看点</a></li>
+                <li><a href="#faq">观看指南</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>五号特工之偷天换日</h1>
+            <div class="hero-meta">
+                <span class="tag">谍战悬疑</span>
+                <span class="tag">动作</span>
+                <span>2013年播出</span>
+            </div>
+            <p style="margin-bottom: 25px; font-size: 1.1rem; opacity: 0.9;">
+                一部以汪伪时期为背景的高智商谍战剧，讲述了潜伏在汪伪特工总部的高层特工们，在生死攸关的绝境中，为了民族大义与信仰，与敌人展开惊心动魄的智斗与搏杀。
+            </p>
+            <a href="#intro" class="btn">开始阅读</a>
+        </div>
+    </section>
+
+    <!-- Intro & Info -->
+    <section id="intro" class="section">
+        <div class="container">
+            <h2 class="section-title">剧情概述</h2>
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <p>《五号特工之偷天换日》是一部制作精良的谍战题材电视剧。故事背景设定在抗日战争时期的上海，此时上海滩表面繁华，实则暗流涌动。剧中的核心人物陈家平（由陆毅饰演）是中共地下党派往汪伪特工总部“76号”潜伏的高层特工。</p>
+                    <p>该剧不同于传统的谍战剧，它更强调“情报”与“反情报”的博弈。主角不仅要面对外部日军和汪伪特务的围追堵截，还要在内部复杂的派系斗争中保持清醒。剧中多次出现了“偷天换日”般的经典计谋，通过伪装身份、交换情报、制造假象等手段，在敌人的眼皮底下完成不可能完成的任务，为抗战胜利做出了不可磨灭的贡献。</p>
+                    <p>整部剧集节奏紧凑，悬念迭起，不仅展现了惊险的枪战和追逐场面，更深入刻画了特工们在信仰与人性之间的艰难抉择。</p>
+                </div>
+                <aside>
+                    <div class="info-card">
+                        <div class="info-item">
+                            <span class="info-label">导演</span>
+                            <span class="info-value">金琛</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">主演</span>
+                            <span class="info-value">陆毅、徐璐、任天野</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">类型</span>
+                            <span class="info-value">谍战 / 悬疑 / 动作</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">集数</span>
+                            <span class="info-value">40集</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">关键词</span>
+                            <span class="info-value">潜伏、智斗、信仰</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cast Section -->
+    <section id="cast" class="section" style="background-color: var(--bg-light);">
+        <div class="container">
+            <h2 class="section-title">主要角色与演员</h2>
+            <div class="cast-grid">
+                <div class="cast-card">
+                    <img src="https://picsum.photos/seed/lu_yi/300/400" alt="陆毅" class="cast-img">
+                    <div class="cast-info">
+                        <div class="cast-name">陆毅 饰 陈家平</div>
+                        <div class="cast-role">中共地下党特工</div>
+                    </div>
+                </div>
+                <div class="cast-card">
+                    <img src="https://picsum.photos/seed/xu_lu/300/400" alt="徐璐" class="cast-img">
+                    <div class="cast-info">
+                        <div class="cast-name">徐璐 饰 春三</div>
+                        <div class="cast-role">特工站站长之女</div>
+                    </div>
+                </div>
+                <div class="cast-card">
+                    <img src="https://picsum.photos/seed/ren_tianye/300/400" alt="任天野" class="cast-img">
+                    <div class="cast-info">
+                        <div class="cast-name">任天野 饰 沈啸</div>
+                        <div class="cast-role">汪伪特工站站长</div>
+                    </div>
+                </div>
+                <div class="cast-card">
+                    <img src="https://picsum.photos/seed/sun_haiping/300/400" alt="孙淳" class="cast-img">
+                    <div class="cast-info">
+                        <div class="cast-name">孙淳 饰 姚碧君</div>
+                        <div class="cast-role">中共地下党高层</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plot Highlights -->
+    <section id="plot" class="section">
+        <div class="container">
+            <h2 class="section-title">核心看点与剧情解析</h2>
+            <div class="plot-container">
+                <div>
+                    <h3>01. 极限潜伏</h3>
+                    <p>陈家平在汪伪特工总部“76号”步步为营，不仅要应付日方的严酷审讯，还要在站长沈啸的怀疑目光下隐藏身份。这种高压环境下的心理博弈是全剧的一大看点。</p>
+                </div>
+                <div>
+                    <h3>02. 情报战</h3>
+                    <p>剧中多次出现“假情报”与“真情报”的互换。主角团队需要通过复杂的密码破译和信物传递，确保核心机密不被泄露，同时误导日军行动。</p>
+                </div>
+                <div>
+                    <h3>03. 情感纠葛</h3>
+                    <p>陈家平与站长之女春三之间产生了复杂的情感纠葛。这段关系既是他们之间的羁绊，也成为了敌人手中的一张牌，增加了剧情的戏剧张力。</p>
+                </div>
+                <div>
+                    <h3>04. 反派魅力</h3>
+                    <p>沈啸这一反派角色智商极高、手段狠辣，他不是脸谱化的坏蛋，而是一个有城府的枭雄。他与陈家平之间的对手戏火花四溅，令人印象深刻。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section" style="background-color: var(--bg-light);">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="section-title">观看指南与常见问题</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">《五号特工之偷天换日》主要讲述了什么故事？</div>
+                <div class="faq-answer">该剧讲述了抗战时期，中共地下党特工陈家平潜伏在汪伪特工总部，利用高超的智谋和勇气，在险恶的环境中与敌人周旋，成功完成多项绝密任务的故事。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">这部剧适合哪些观众群体？</div>
+                <div class="faq-answer">喜欢谍战悬疑题材、欣赏高智商博弈以及喜欢陆毅、任天野等演员作品的观众群体。剧情节奏紧凑，适合喜欢烧脑剧情的观众。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">剧中“五号特工”具体指的是什么？</div>
+                <div class="faq-answer">在剧中语境下，“五号”通常指代代号为“五号”的核心情报人员或特定的情报传递代号，象征着其身份的机密性和重要性。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如何观看这部剧？</div>
+                <div class="faq-answer">该剧通常可以在各大正版视频平台（如爱奇艺、腾讯视频、优酷等）搜索片名观看，建议支持正版平台获取高清画质。</div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于本站</h4>
+                <p>本站致力于提供最全、最准的影视剧剧情解析与观看指南，为影视爱好者提供专业的内容服务。</p>
+            </div>
+            <div class="footer-col">
+                <h4>相关推荐</h4>
+                <ul>
+                    <li><a href="#">潜伏</a></li>
+                    <li><a href="#">伪装者</a></li>
+                    <li><a href="#">叛逆者</a></li>
+                    <li><a href="#">风筝</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">剧情简介</a></li>
+                    <li><a href="#">主要演员</a></li>
+                    <li><a href="#">分集剧情</a></li>
+                    <li><a href="#">观看指南</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 影视剧情解析网. All Rights Reserved. 本页面仅供内容展示与剧情介绍，非官方网站。</p>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<script>
+    // Simple FAQ Toggle Logic
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', () => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
+        });
+    });
+
+    // Smooth Scroll for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

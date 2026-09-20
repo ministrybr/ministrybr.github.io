@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="法国满天星《高压监狱》漫画在线阅读平台，提供高清正版漫画资源、剧情介绍、角色分析及阅读指南。">
+    <meta name="keywords" content="法国满天星, 高压监狱, 漫画, 在线阅读, 韩漫, 豪门">
+    <title>法国满天星《高压监狱》- 漫画在线阅读与剧情解析指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --accent-color: #f1faee;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f8f9fa;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #2a4a7a 100%);
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background-color: #c92a35;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(230, 57, 70, 0.4);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Left Column: Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            font-weight: normal;
+        }
+
+        /* Manga Grid */
+        .manga-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .manga-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .manga-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-cover {
+            width: 100%;
+            aspect-ratio: 2/3;
+            background-color: #eee;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 12px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Intro Section */
+        .intro-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .intro-text p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .tags {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: #eee;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-widget {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #ddd;
+            width: 30px;
+        }
+
+        .rank-num.top-1 { color: #f1c40f; }
+        .rank-num.top-2 { color: #e67e22; }
+        .rank-num.top-3 { color: #d35400; }
+
+        .rank-info h4 {
+            font-size: 0.95rem;
+            margin-bottom: 3px;
+        }
+
+        .rank-info span {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        /* Update Section */
+        .update-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .update-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .update-item:hover {
+            background: #f8f9fa;
+        }
+
+        .update-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .update-chapter {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+        }
+
+        .update-date {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 50px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container nav {
+                display: none; /* In a real app, this would be a toggle menu */
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .manga-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .manga-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span>法国满天星</span>漫画
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">韩漫</a></li>
+                    <li><a href="#">分类</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">我的书架</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">☰</div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>《高压监狱》</h1>
+                <p>深入豪门恩怨的深渊，体验极致的剧情反转与情感纠葛。法国满天星独家呈现，高清画质，沉浸式阅读体验。</p>
+                <a href="#intro" class="btn-primary">开始阅读</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Main Content Area -->
+            <div class="main-content">
+                
+                <!-- Introduction Section -->
+                <article id="intro" class="intro-box">
+                    <div class="section-title">作品简介</div>
+                    <div class="intro-text">
+                        <p><strong>《高压监狱》</strong> 是一部由知名漫画家创作的现代豪门题材漫画。故事围绕女主角在家族企业内部面临的复杂环境展开，她不仅要面对职场的尔虞我诈，还要处理令人窒息的家庭关系。在这个被金钱和权力构建的“高压监狱”中，人性的挣扎与救赎成为了故事的核心。</p>
+                        <p>作品以其细腻的笔触和紧凑的剧情著称，每一个章节都充满了悬念，让读者在阅读过程中始终保持高度的紧张感。无论是对于职场生存法则的描写，还是对于亲情与爱情的深刻剖析，都极具共鸣。</p>
+                        <p>法国满天星致力于为读者提供最优质的阅读环境，本作已开启高清连载模式，支持手机、平板及电脑端流畅阅读。</p>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">豪门恩怨</span>
+                        <span class="tag">职场</span>
+                        <span class="tag">复仇</span>
+                        <span class="tag">爱情</span>
+                        <span class="tag">治愈</span>
+                    </div>
+                </article>
+
+                <!-- Update List -->
+                <section>
+                    <div class="section-title">
+                        最新更新
+                        <a href="#">查看更多 ></a>
+                    </div>
+                    <div class="update-list">
+                        <div class="update-item">
+                            <div>
+                                <span class="update-title">第 245 话：最后的防线</span>
+                            </div>
+                            <div style="text-align: right;">
+                                <span class="update-date">2023-10-24</span>
+                            </div>
+                        </div>
+                        <div class="update-item">
+                            <div>
+                                <span class="update-title">第 244 话：风暴前夕</span>
+                            </div>
+                            <div style="text-align: right;">
+                                <span class="update-date">2023-10-22</span>
+                            </div>
+                        </div>
+                        <div class="update-item">
+                            <div>
+                                <span class="update-title">第 243 话：意想不到的背叛</span>
+                            </div>
+                            <div style="text-align: right;">
+                                <span class="update-date">2023-10-20</span>
+                            </div>
+                        </div>
+                        <div class="update-item">
+                            <div>
+                                <span class="update-title">第 242 话：真相大白</span>
+                            </div>
+                            <div style="text-align: right;">
+                                <span class="update-date">2023-10-18</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recommendations Grid -->
+                <section>
+                    <div class="section-title">同类推荐</div>
+                    <div class="manga-grid">
+                        <div class="manga-card">
+                            <img src="https://picsum.photos/seed/manga1/300/450" alt="漫画封面" class="card-cover">
+                            <div class="card-info">
+                                <div class="card-title">豪门千金</div>
+                                <div class="card-meta">
+                                    <span>剧情</span>
+                                    <span>9.8分</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="manga-card">
+                            <img src="https://picsum.photos/seed/manga2/300/450" alt="漫画封面" class="card-cover">
+                            <div class="card-info">
+                                <div class="card-title">暗夜之王</div>
+                                <div class="card-meta">
+                                    <span>动作</span>
+                                    <span>9.5分</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="manga-card">
+                            <img src="https://picsum.photos/seed/manga3/300/450" alt="漫画封面" class="card-cover">
+                            <div class="card-info">
+                                <div class="card-title">初恋回响</div>
+                                <div class="card-meta">
+                                    <span>爱情</span>
+                                    <span>9.2分</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="manga-card">
+                            <img src="https://picsum.photos/seed/manga4/300/450" alt="漫画封面" class="card-cover">
+                            <div class="card-info">
+                                <div class="card-title">绝境求生</div>
+                                <div class="card-meta">
+                                    <span>惊悚</span>
+                                    <span>9.0分</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Sidebar -->
+            <aside>
+                <!-- Ranking Widget -->
+                <div class="sidebar-widget">
+                    <div class="section-title">热门榜单</div>
+                    <ul class="rank-list">
+                        <li>
+                            <span class="rank-num top-1">1</span>
+                            <div class="rank-info">
+                                <h4>公主归来</h4>
+                                <span>24.5万人气</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num top-2">2</span>
+                            <div class="rank-info">
+                                <h4>恶魔契约</h4>
+                                <span>18.2万人气</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num top-3">3</span>
+                            <div class="rank-info">
+                                <h4>独家占有</h4>
+                                <span>15.6万人气</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">4</span>
+                            <div class="rank-info">
+                                <h4>冷面总裁</h4>
+                                <span>12.1万人气</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">5</span>
+                            <div class="rank-info">
+                                <h4>禁忌之恋</h4>
+                                <span>10.8万人气</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- FAQ Widget -->
+                <div class="sidebar-widget">
+                    <div class="section-title">阅读指南</div>
+                    <div style="font-size: 0.9rem; color: #555;">
+                        <p style="margin-bottom: 10px;"><strong>Q: 如何找到最新更新的章节？</strong></p>
+                        <p style="margin-bottom: 15px; color: #777;">请关注本站首页的“最新更新”栏目，或点击顶部导航栏的分类标签。</p>
+                        
+                        <p style="margin-bottom: 10px;"><strong>Q: 支持哪些设备？</strong></p>
+                        <p style="margin-bottom: 15px; color: #777;">本站完美支持手机浏览器、平板电脑及PC端电脑阅读。</p>
+                        
+                        <p style="margin-bottom: 10px;"><strong>Q: 画质如何？</strong></p>
+                        <p style="color: #777;">我们提供高清画质，确保您获得最佳的视觉体验。</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>法国满天星</h3>
+                <p style="color: #ccc; font-size: 0.9rem; line-height: 1.8;">
+                    专注于提供高质量的漫画阅读服务，涵盖韩漫、日漫、国漫等多种题材。致力于打造最舒适的阅读社区。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h3>快速链接</h3>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">投稿建议</a></li>
+                    <li><a href="#">免责声明</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>热门分类</h3>
+                <ul>
+                    <li><a href="#">爱情</a></li>
+                    <li><a href="#">豪门</a></li>
+                    <li><a href="#">复仇</a></li>
+                    <li><a href="#">悬疑</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 法国满天星漫画平台 版权所有
+        </div>
+    </footer>
+
+</body>
+</html>

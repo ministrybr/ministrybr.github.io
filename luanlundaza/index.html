@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="乱仑大杂会 - 提供多元化的娱乐内容聚合与休闲互动平台，涵盖动漫、影视、游戏及生活趣闻，满足用户多样化的娱乐需求。">
+    <meta name="keywords" content="乱仑大杂会, 娱乐聚合, 动漫推荐, 影视资讯, 游戏攻略, 生活趣闻">
+    <title>乱仑大杂会-多元娱乐内容聚合与互动平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6C5CE7;
+            --secondary-color: #A29BFE;
+            --accent-color: #FD79A8;
+            --bg-color: #F8F9FA;
+            --card-bg: #FFFFFF;
+            --text-main: #2D3436;
+            --text-light: #636E72;
+            --border-radius: 12px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-light);
+            transition: var(--transition);
+            font-size: 16px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 25px;
+            border-radius: 30px;
+            border: none;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            outline: none;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            margin-top: 50px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-main);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        .view-all {
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Grid Layouts */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 12px;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #b2bec3;
+            border-top: 1px solid #f1f2f6;
+            padding-top: 15px;
+        }
+
+        /* Special Layout for Banner */
+        .banner-card {
+            grid-column: span 2;
+            grid-row: span 2;
+            height: 100%;
+        }
+
+        .banner-card .card-img {
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .banner-card .card-content {
+            background: rgba(255, 255, 255, 0.95);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+        }
+
+        /* Category Tags */
+        .category-tags {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            margin-bottom: 10px;
+            scrollbar-width: none;
+        }
+
+        .category-tags::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tag {
+            background: var(--card-bg);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-light);
+            border: 1px solid #eee;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tag:hover, .tag.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-item i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2D3436;
+            color: #dfe6e9;
+            padding: 60px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 14px;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            opacity: 1;
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 13px;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .grid-4, .grid-3, .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .banner-card {
+                grid-column: span 3;
+                grid-row: auto;
+            }
+            .banner-card .card-img {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            nav ul.show {
+                display: flex;
+            }
+            .grid-4, .grid-3, .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .banner-card {
+                grid-column: span 2;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-brand p {
+                margin: 20px auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-4, .grid-3, .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .banner-card {
+                grid-column: span 1;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                乱仑<span>大杂会</span>
+            </a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">动漫精选</a></li>
+                    <li><a href="#">影视动态</a></li>
+                    <li><a href="#">游戏攻略</a></li>
+                    <li><a href="#">生活杂谈</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>发现多元世界的精彩</h1>
+        <p>这里是乱仑大杂会，汇聚最新鲜的动漫资讯、最热门的影视评论与最实用的生活技巧，为您打造一站式的娱乐与知识体验。</p>
+        <div class="search-box">
+            <input type="text" placeholder="搜索您感兴趣的内容...">
+            <button>🔍</button>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Category Filter -->
+        <div class="category-tags">
+            <div class="tag active">全部</div>
+            <div class="tag">热门推荐</div>
+            <div class="tag">二次元</div>
+            <div class="tag">科幻电影</div>
+            <div class="tag">独立游戏</div>
+            <div class="tag">数码评测</div>
+            <div class="tag">旅行摄影</div>
+            <div class="tag">深夜食堂</div>
+        </div>
+
+        <!-- Featured Section -->
+        <div class="section-header">
+            <h2 class="section-title">本周精选</h2>
+            <a href="#" class="view-all">查看更多 →</a>
+        </div>
+
+        <div class="grid-4">
+            <article class="card banner-card">
+                <img src="https://picsum.photos/seed/anime1/800/800" alt="精选封面" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">重磅推荐</span>
+                    <h3 class="card-title">2024年最值得期待的十部新番动画深度解析</h3>
+                    <p class="card-desc">随着新季度的临近，各大制作委员会纷纷亮出杀手锏。本文将为您盘点即将上线的动画巨作，从剧本到画面全方位解析。</p>
+                    <div class="card-meta">
+                        <span>动漫频道</span>
+                        <span>3小时前</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/game1/400/300" alt="游戏封面" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">游戏攻略</span>
+                    <h3 class="card-title">《赛博纪元》全收集路线图与隐藏彩蛋详解</h3>
+                    <p class="card-desc">想要达成完美结局？这份详尽的攻略将帮助您避开所有陷阱，发现地图角落里的所有秘密。</p>
+                    <div class="card-meta">
+                        <span>游戏中心</span>
+                        <span>5小时前</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/movie1/400/300" alt="电影封面" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">影评</span>
+                    <h3 class="card-title">重温经典：王家卫风格在当代电影中的演变</h3>
+                    <p class="card-desc">从《花样年华》到《一代宗师》，探讨导演独特的叙事手法与光影美学如何影响了一代观众。</p>
+                    <div class="card-meta">
+                        <span>影视评论</span>
+                        <span>1天前</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/tech1/400/300" alt="科技封面" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">数码评测</span>
+                    <h3 class="card-title">新一代折叠屏手机上手体验：轻薄与性能的平衡</h3>
+                    <p class="card-desc">经过一周的深度使用，这款设备在办公娱乐场景下的表现究竟如何？续航与发热情况实测。</p>
+                    <div class="card-meta">
+                        <span>科技前沿</span>
+                        <span>2天前</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Latest Updates Section -->
+        <div class="section-header">
+            <h2 class="section-title">最新动态</h2>
+            <a href="#" class="view-all">查看更多 →</a>
+        </div>
+
+        <div class="grid-3">
+            <article class="card">
+                <img src="https://picsum.photos/seed/life1/500/300" alt="生活封面" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">生活杂谈</span>
+                    <h3 class="card-title">极简主义生活：如何通过断舍离提升幸福感</h3>
+                    <p class="card-desc">清理物品，也是清理内心。分享几个实用的整理技巧，让您的居住空间焕然一新。</p>
+                    <div class="card-meta">
+                        <span>生活指南</span>
+                        <span>10分钟前</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/travel1/500/300" alt="旅行封面" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">旅行日记</span>
+                    <h3 class="card-title">云南大理：避开人潮，发现小众古城的静谧时光</h3>
+                    <p class="card-desc">不只有大理古城，还有喜洲、沙溪。为您推荐几处鲜为人知的美景，适合周末短途游。</p>
+                    <div class="card-meta">
+                        <span>旅行摄影</span>
+                        <span>4小时前</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/music1/500/300" alt="音乐封面" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">音乐推荐</span>
+                    <h3 class="card-title">2024夏季歌单：治愈系民谣与节奏感R&B</h3>
+                    <p class="card-desc">在这个炎热的夏天，听什么歌最解暑？整理了一份包含10首高播放量的歌单，献给热爱音乐的您。</p>
+                    <div class="card-meta">
+                        <span>音乐电台</span>
+                        <span>6小时前</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/food1/500/300" alt="美食封面" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">美食探店</span>
+                    <h3 class="card-title">深夜食堂：一碗热腾腾的日式拉面背后的故事</h3>
+                    <p class="card-desc">在这个城市寻找最地道的拉面店，从汤底熬制到面条口感，带你体验正宗的日式风味。</p>
+                    <div class="card-meta">
+                        <span>美食天下</span>
+                        <span>昨天</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/sport1/500/300" alt="运动封面" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">运动健身</span>
+                    <h3 class="card-title">居家健身指南：无需器械的HIIT训练计划</h3>
+                    <p class="card-desc">没有时间去健身房？试试这套高效的HIIT训练，只需20分钟即可燃脂塑形。</p>
+                    <div class="card-meta">
+                        <span>健康生活</span>
+                        <span>昨天</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/art1/500/300" alt="艺术封面" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">艺术赏析</span>
+                    <h3 class="card-title">印象派绘画：光影变幻中的瞬间永恒</h3>
+                    <p class="card-desc">走进莫奈的花园，欣赏《睡莲》系列的色彩魅力，了解印象派如何改变西方艺术史。</p>
+                    <div class="card-meta">
+                        <span>艺术馆</span>
+                        <span>2天前</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i>⚡</i>
+                    <h3>极速更新</h3>
+                    <p>全网热点第一时间推送，不错过任何精彩瞬间。</p>
+                </div>
+                <div class="feature-item">
+                    <i>💎</i>
+                    <h3>精选内容</h3>
+                    <p>人工筛选优质资讯，拒绝低俗与垃圾信息。</p>
+                </div>
+                <div class="feature-item">
+                    <i>💬</i>
+                    <h3>互动社区</h3>
+                    <p>畅所欲言，分享您的观点，结识志同道合的朋友。</p>
+                </div>
+                <div class="feature-item">
+                    <i>📱</i>
+                    <h3>全端适配</h3>
+                    <p>无论是在电脑还是手机，都能获得流畅的阅读体验。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo" style="color: white;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                        乱仑大杂会
+                    </a>
+                    <p>致力于为用户提供多元化、高品质的互联网内容服务，连接每一个热爱生活的你。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">平台介绍</a></li>
+                        <li><a href="#">加入团队</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">广告合作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>内容栏目</h4>
+                    <ul>
+                        <li><a href="#">动漫专区</a></li>
+                        <li><a href="#">影视资讯</a></li>
+                        <li><a href="#">游戏攻略</a></li>
+                        <li><a href="#">生活百科</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助支持</h4>
+                    <ul>
+                        <li><a href="#">用户协议</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 乱仑大杂会 版权所有. 保留所有权利.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById('nav-menu');
+            nav.classList.toggle('show');
+        }
+
+        // Simple tag selection interaction
+        var tags = document.querySelectorAll('.tag');
+        tags.forEach(function(tag) {
+            tag.addEventListener('click', function() {
+                tags.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+  </html>
